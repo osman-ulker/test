@@ -1,0 +1,23 @@
+specVersion: "4.0"
+metadata:
+  name: com.siparisler
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: http://10.134.4.114:8000
+          client: '100'
+          language: 'TR'
+        app:
+          name: ZSIPARISLER
+          package: Z_TEST
+          transport: S25K900739
+        exclude:
+          - /test/
